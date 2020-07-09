@@ -12,6 +12,15 @@ type validation struct {
 	size int
 }
 
+func Contains(arr []string, s string) bool {
+	for _, a := range arr {
+		if a == s {
+			return true
+		}
+	}
+	return false
+}
+
 func Email(s string) bool {
 	if Empty(s) {
 		return false

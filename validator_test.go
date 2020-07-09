@@ -33,6 +33,26 @@ func TestErrors(t *testing.T) {
 	}
 }
 
+func TestContains(t *testing.T) {
+	os := []string{"linux", "windows", "macos"}
+
+	expected := "contains/string-invalid"
+	got := Forge("android").AllowEmpty().Contains(os, expected).Assert().Error()
+	if got != expected {
+		t.Errorf("Expected '%s', got '%s'", expected, got)
+	}
+
+	err := Forge("linux").AllowEmpty().Contains(os, expected).Assert()
+	if err != nil {
+		t.Errorf("Expected no error, got '%s'", err.Error())
+	}
+
+	err = Forge("").AllowEmpty().Contains(os, expected).Assert()
+	if err != nil {
+		t.Errorf("Expected no error, got '%s'", err.Error())
+	}
+}
+
 func TestDocumentsBrazil(t *testing.T) {
 	expected := "cnpj/invalid"
 	got := Forge("11111111111111").AllowEmpty().Document(brazilCNPJ, expected).Assert().Error()

@@ -45,6 +45,17 @@ func (v validator) Errors() (all []error) {
 	return
 }
 
+func (v validator) Contains(arr []string, m string) validator {
+	s := v.getString()
+	if v.allowEmpty && Empty(s) {
+		return v
+	}
+	if !Contains(arr, s) {
+		v.messages = append(v.messages, m)
+	}
+	return v
+}
+
 func (v validator) Document(doc DocumentType, m string) validator {
 	s := v.getString()
 	if v.allowEmpty && Empty(s) {
