@@ -1,8 +1,8 @@
 # valida
 
-[![Build Status](https://travis-ci.org/martinusso/zx.svg?branch=master)](https://travis-ci.org/martinusso/zx)
-[![Coverage Status](https://coveralls.io/repos/github/martinusso/zx/badge.svg?branch=master)](https://coveralls.io/github/martinusso/zx?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/martinusso/zx)](https://goreportcard.com/report/github.com/martinusso/zx)
+[![Build Status](https://travis-ci.org/martinusso/valida.svg?branch=master)](https://travis-ci.org/martinusso/valida)
+[![Coverage Status](https://coveralls.io/repos/github/martinusso/valida/badge.svg?branch=master)](https://coveralls.io/github/martinusso/valida?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/martinusso/valida)](https://goreportcard.com/report/github.com/martinusso/valida)
 
 ## Getting started
 
