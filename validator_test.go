@@ -55,15 +55,15 @@ func TestContains(t *testing.T) {
 
 func TestDocumentsBrazil(t *testing.T) {
 	expected := "cnpj/invalid"
-	got := Forge("11111111111111").AllowEmpty().Document(brazilCNPJ, expected).Assert().Error()
+	got := Forge("11111111111111").AllowEmpty().Document(BrazilCNPJ, expected).Assert().Error()
 	if got != expected {
 		t.Errorf("Expected '%s', got '%s'", expected, got)
 	}
-	err := Forge("24761136000182").AllowEmpty().Document(brazilCNPJ, expected).Assert()
+	err := Forge("24761136000182").AllowEmpty().Document(BrazilCNPJ, expected).Assert()
 	if err != nil {
 		t.Errorf("Expected no error, got '%s'", err.Error())
 	}
-	err = Forge("").AllowEmpty().Document(brazilCNPJ, expected).Assert()
+	err = Forge("").AllowEmpty().Document(BrazilCNPJ, expected).Assert()
 	if err != nil {
 		t.Errorf("Expected no error, got '%s'", err.Error())
 	}

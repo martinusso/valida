@@ -5,7 +5,7 @@ import "github.com/martinusso/valida/document"
 type DocumentType string
 
 const (
-	brazilCNPJ DocumentType = "brazil/cnpj"
+	BrazilCNPJ DocumentType = "brazil/cnpj"
 	BrazilCPF  DocumentType = "brazil/cpf"
 )
 
@@ -14,7 +14,7 @@ func Document(docType DocumentType, value string) bool {
 		return false
 	}
 	switch docType {
-	case brazilCNPJ:
+	case BrazilCNPJ:
 		return document.CNPJ(value)
 	case BrazilCPF:
 		return document.CPF(value)
