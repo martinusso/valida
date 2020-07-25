@@ -133,6 +133,17 @@ func (v validator) Password(m string) validator {
 	return v
 }
 
+func (v validator) URL(m string) validator {
+	s := v.getString()
+	if v.allowEmpty && Empty(s) {
+		return v
+	}
+	if !URL(s) {
+		v.messages = append(v.messages, m)
+	}
+	return v
+}
+
 func (v validator) getString() string {
 	if v.value == nil {
 		return ""

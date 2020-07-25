@@ -232,3 +232,39 @@ func TestPassword(t *testing.T) {
 		t.Errorf("There should not be an error, error: %s", err)
 	}
 }
+
+func TestURL(t *testing.T) {
+	expected := "url/invalid"
+
+	err := Forge("").URL(expected).Assert()
+	if err.Error() != expected {
+		t.Errorf("Expected '%s', got '%s'", expected, err.Error())
+	}
+	err = Forge("www.google").URL(expected).Assert()
+	if err.Error() != expected {
+		t.Errorf("Expected '%s', got '%s'", expected, err.Error())
+	}
+	err = Forge("google.com").URL(expected).Assert()
+	if err.Error() != expected {
+		t.Errorf("Expected '%s', got '%s'", expected, err.Error())
+	}
+	err = Forge("www.google.com").URL(expected).Assert()
+	if err.Error() != expected {
+		t.Errorf("Expected '%s', got '%s'", expected, err.Error())
+	}
+
+	err = Forge("https://www.google.com/").URL(expected).Assert()
+	if err != nil {
+		t.Errorf("There should not be an error, error: %s", err)
+	}
+
+	err = Forge("https://www.google.com").URL(expected).Assert()
+	if err != nil {
+		t.Errorf("There should not be an error, error: %s", err)
+	}
+
+	err = Forge("http://www.google.com/").URL(expected).Assert()
+	if err != nil {
+		t.Errorf("There should not be an error, error: %s", err)
+	}
+}

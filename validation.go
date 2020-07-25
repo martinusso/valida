@@ -1,6 +1,7 @@
 package valida
 
 import (
+	"net/url"
 	"regexp"
 	"strings"
 )
@@ -69,4 +70,9 @@ func Password(s string) bool {
 		return false
 	}
 	return true
+}
+
+func URL(value string) bool {
+	_, err := url.ParseRequestURI(value)
+	return err == nil
 }
